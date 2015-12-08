@@ -1,0 +1,6 @@
+#!/bin/sh
+mac "$1wav" "$1ape" -c2000
+
+cp "$1cue" "$1ape.cue"
+sed -i 's/.wav/.ape/g' "$1ape.cue"
+

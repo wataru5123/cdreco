@@ -1,0 +1,6 @@
+#!/bin/sh
+ttaenc -e "$1wav" -o "$1tta"
+
+cp "$1cue" "$1tta.cue"
+sed -i 's/.wav/.tta/g' "$1tta.cue"
+

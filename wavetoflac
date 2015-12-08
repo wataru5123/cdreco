@@ -1,0 +1,6 @@
+#!/bin/sh
+flac "$1wav" -o "$1flac"
+
+cp "$1cue" "$1flac.cue"
+sed -i 's/.wav/.flac/g' "$1flac.cue"
+

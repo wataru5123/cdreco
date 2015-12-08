@@ -1,0 +1,6 @@
+#!/bin/sh
+wavpack "$1wav" -o "$1wv"
+
+cp "$1cue" "$1wv.cue"
+sed -i 's/.wav/.wv/g' "$1wv.cue"
+

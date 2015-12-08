@@ -1,0 +1,11 @@
+#!/bin/sh
+if ["$1" = ""]; then
+   echo "cdencode (flac,ape.tta.wv)" 
+   exit 1 
+else
+audiocue
+CUENAME=$(ls *.cue)
+MAKEENC=$(basename $CUENAME cue)
+encmode="waveto$1"
+$encmode $MAKEENC
+fi
