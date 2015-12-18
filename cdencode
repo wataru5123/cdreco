@@ -1,11 +1,15 @@
-#!/bin/sh
-if ["$1" = ""]; then
-   echo "cdencode (flac,ape.tta.wv)" 
+#!/bin/bash
+if [ $# -ne 1 ]; then
+   echo "cdencode (flac,ape,tta,wv)" 1>&2 
    exit 1 
-else
-audiocue
-CUENAME=$(ls *.cue)
-MAKEENC=$(basename $CUENAME cue)
-encmode="waveto$1"
-$encmode $MAKEENC
 fi
+audiocue
+CUENAME=`ls -t *.cue | head -n 1`
+echo $CUENAME
+MAKEENC=`basename "$CUENAME" cue`
+echo $MAKEENC
+ENCMODE=waveto$1
+echo $ENCMODE
+$ENCMODE "$MAKEENC"
+exit 0
+
